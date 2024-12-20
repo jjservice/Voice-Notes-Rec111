@@ -1,0 +1,234 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(to right, black,darkblue,maroon,black);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    flex-direction: column;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    transition: 1s ease-in-out;
+}
+body.lightPlayer{
+    background: linear-gradient(to right, black,darkblue,lightgreen,maroon,black);
+}
+.container{
+    margin: 0% auto;
+    margin-top: 10px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 6px solid rgba(143, 117, 68, 0.452);
+    box-shadow: 0px 2px 10px lightskyblue;
+    padding: 10px;
+    border-radius: 40px;
+    transition: 1s ease-in-out;
+    width: 370px;
+}
+body.lightPlayer .container{
+    border: 6px solid rgba(173, 19, 122, 0.349);
+    box-shadow: 0px 2px 10px yellowgreen;
+    transition: 1s ease-in-out;
+}
+h1{
+    color: wheat;
+    text-shadow: 2px 2px 4px darkblue;
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+    background-color: rgba(0, 0, 0, 0.329);
+    border-radius: 100%;
+    border: 4px solid rgba(0, 0, 139, 0.137);
+    box-shadow: 0px 3px 0px rgba(255, 255, 255, 0.137);
+}
+body.lightPlayer h1{
+    color: white;
+    text-shadow: 2px 2px 4px gold; 
+}
+h2{
+    color: rgb(177, 160, 160);
+    text-shadow: 2px 2px 2px darkblue;
+    margin-bottom: 10px;
+}
+h3{
+    margin: 0% auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 5px;
+    color: darkgrey;
+    text-shadow: 2px 2px 4px darkblue;
+    background-color: rgba(255, 255, 255, 0.151);
+    padding: 5px 10px;
+    width: 200px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(135, 206, 250, 0.842);
+}
+h4{
+    color: darkgray;
+    text-shadow: 1px 1px 2px darkblue;
+}
+h4 ion-icon{
+    color: wheat;
+
+}
+body.lightPlayer h4 ion-icon{
+    color: rgba(255, 217, 0, 0.603);
+}
+
+
+body.lightPlayer h3{
+    border: 1px solid yellowgreen;
+}
+summary{
+    margin: 0% auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 5px;
+    color: darkgray;
+    text-shadow: 1px 1px 2px darkblue;
+    background-color: rgba(255, 255, 255, 0.151);
+    border: 1px solid rgba(135, 206, 250, 0.842);
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100px;
+    border-radius: 15px; 
+    list-style-type: none;
+    letter-spacing: 1px;
+    opacity: 90%;
+    cursor: pointer;
+ 
+}
+
+summary:hover{
+    transform: scale(1.10);
+    transition: 1s;
+    opacity: 100%;
+}
+body.lightPlayer summary{
+    color: yellow;
+    text-shadow: 2px 2px 4px darkblue;
+    border: 1px solid yellowgreen; 
+    opacity: 100%;
+}
+summary ion-icon{
+   color: wheat;
+}
+body.lightPlayer summary ion-icon{
+    color: rgba(18, 69, 209, 0.658);
+}
+#notes{
+    margin: 0% auto;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.603);
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    text-shadow: 0px 0px 1px gold;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 100%;
+    height: 150px;
+    border: 1px solid rgba(255, 217, 0, 0.514);
+    overflow: scroll;
+    cursor: pointer;
+}
+#notes::-webkit-scrollbar{
+    width: 10px;
+    height: 0px;
+    background-color: rgba(0, 0, 0, 0.151);
+    border: none;
+}
+#notes::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+#notes::-webkit-scrollbar-thumb{
+    height: 0px;
+    width: 15px;
+    background-color: transparent;
+    border: 2px solid rgba(135, 206, 250, 0.459);
+    border-radius: 50%;
+}
+body.lightPlayer #notes::-webkit-scrollbar-thumb{
+    border: 2px solid yellowgreen; 
+}
+#notes::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0px 2px 10px gold;
+}
+audio{
+    padding: 15px;
+    background-color: rgba(85, 13, 126, 0.507);
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px darkgray;
+    border: 1px solid yellowgreen;
+    opacity: 70%;
+    transition: 1s ease-in-out;
+}
+
+body.lightPlayer audio{
+    background-color: rgba(0, 0, 0, 0.363);
+    opacity: 90%;
+}
+button{
+    border-radius: 8px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px lightskyblue;
+    letter-spacing: 1px;
+}
+body.lightPlayer button{
+    box-shadow: 0px 2px 10px black;
+}
+button:hover{
+    transform: scale(1.10);
+    transition: 0.5s;
+}
+#startRecording{
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-top: 3px solid rgba(153, 205, 50, 0.781); 
+    background: rgba(245, 245, 245, 0.226);
+    color: white;
+    text-shadow: 1px 1px 2px gold;
+    margin-bottom: 10px;
+    
+}
+#startRecording:hover{
+    background-color: rgba(0, 0, 0, 0.329);
+}
+#stopRecording{
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-top: 3px solid rgba(0, 0, 139, 0.596); 
+    color: darkgray;
+    text-shadow: 0px 0px 1px darkblue;
+    font-weight: bold;
+   
+}
+#liveSpeechInput{
+    margin: 0 auto;
+    width: 95%;
+    height: 100px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.226);
+    border-radius: 20px;
+    color: white;
+}
+@media (min-width: 768px){
+    .container{
+        min-width: 600px;
+    }
+}
