@@ -4,65 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Recorder.css">
-    <title>LOLLIPOP</title>
+    <title>Speech-to-Text and Audio Recorder</title>
     <style>
+        /* Basic styling */
         #notesContainer {
             margin-top: 20px;
         }
         .note {
-            background-color: #f4f4f4;
-            padding: 10px;
             margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
         }
         .delete-btn {
             background-color: red;
             color: white;
             border: none;
             padding: 5px;
-            border-radius: 3px;
             cursor: pointer;
-        }
-        .delete-btn:hover {
-            background-color: darkred;
-        }
-
-        #liveSpeechInput {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-            min-height: 50px;
-            font-style: italic;
-            color: #555;
         }
     </style>
 </head>
 <body>
-        <ul class="container">
+   
         
-        <!-- Text Area for Notes -->
-        <textarea id="notes" placeholder="Type your notes here..." rows="10" cols="50"></textarea>
-        
-        <br>
-        
-        <!-- Voice Recorder Controls -->
-        <button id="startRecording">Start Recording</button>
-        <button id="stopRecording" disabled>Stop Recording</button>
-        
-        <h3>Live Speech Input</h3>
-        <!-- Display interim results (real-time speech transcription) -->
-        <div id="liveSpeechInput"></div>
+    <ul class="container">
 
-        <h3>Recorded Audio</h3>
+        <h1 onclick="toggleClassPlayer()">LOLLIPOP</h1>
+        <h2>Voice to Notes Recorder</h2>
+
+    <button id="startRecording">Start Recording</button>
+    <button id="stopRecording" disabled>Stop Recording</button>
+    <textarea id="notes" placeholder="Write your notes here..."></textarea>
+    <div id="liveSpeechInput"></div>
+    <button id="saveNote" style="display: none;">Save Note</button>
+
+    <details>
+        <summary>Audio<ion-icon name="finger-print"></ion-icon></summary>
         <audio id="audioPlayback" controls></audio>
+     </details>
+     
+    <div id="notesContainer" style="display: none;">
+    </div>
+    <button id="downloadAudio" disabled>Download Audio</button>
 
-        <h3>Saved Notes</h3>
-        <!-- Container to display saved notes -->
-        <div id="notesContainer"></div>
-
-        <button id="saveNote">Save Note</button> <!-- Button to save current notes -->
- </ul>
+    </ul>
 
     <script>
         // Accessing elements
@@ -73,6 +58,7 @@
         const notesContainer = document.getElementById("notesContainer");
         const saveNoteButton = document.getElementById("saveNote");
         const liveSpeechInputDiv = document.getElementById("liveSpeechInput");
+        const downloadAudioButton = document.getElementById("downloadAudio");
 
         let mediaRecorder;
         let audioChunks = [];
@@ -103,7 +89,7 @@
                         interimTranscript += transcript;
                     }
                 }
-                
+
                 // Update liveSpeechInputDiv with interim results for real-time feedback
                 liveSpeechInputDiv.textContent = interimTranscript;
 
@@ -146,7 +132,7 @@
         // Function to display a note
         function displayNote(noteContent) {
             const noteDiv = document.createElement("div");
-            noteDiv.classList.add("note");
+            noteDiv.classList.add("notes");
             noteDiv.textContent = noteContent;
 
             const deleteButton = document.createElement("button");
@@ -197,6 +183,7 @@
                         audioBlob = new Blob(audioChunks, { type: "audio/wav" });
                         audioUrl = URL.createObjectURL(audioBlob);
                         audioPlayback.src = audioUrl;
+                        downloadAudioButton.disabled = false;
                     };
 
                     mediaRecorder.start();
@@ -217,21 +204,22 @@
         });
 
         // Download audio (optional feature)
-        const downloadAudioButton = document.getElementById("downloadAudio");
+        downloadAudioButton.addEventListener("click", () => {
+            const link = document.createElement("a");
+            link.href = audioUrl;
+            link.download = "recording.wav";
+            link.click();
+        });
 
-        mediaRecorder.onstop = () => {
-            audioBlob = new Blob(audioChunks, { type: "audio/wav" });
-            audioUrl = URL.createObjectURL(audioBlob);
-            audioPlayback.src = audioUrl;
-            downloadAudioButton.disabled = false;
+        ///Lightsss/////
 
-            downloadAudioButton.addEventListener("click", () => {
-                const link = document.createElement("a");
-                link.href = audioUrl;
-                link.download = "recording.wav";
-                link.click();
-            });
-        };
+function toggleClassPlayer() {
+    const body = document.querySelector('body');
+    body.classList.toggle('lightPlayer');
+}
+
     </script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

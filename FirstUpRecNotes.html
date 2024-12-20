@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Recorder.css">
+    <title>LOLLIPOP</title>
+</head>
+<body class="lightPlayer">
+       
+        <ul class="container">
+
+            <h1 onclick="toggleClassPlayer()">LOLLIPOP</h1>
+            <h2>Voice to Notes Recorder</h2>
+        
+              <!-- Voice Recorder Controls -->
+              <button id="startRecording">Start Recording</button>
+              <button id="stopRecording" disabled>Stop Recording</button>
+              
+            <!-- Text Area for Notes -->
+            <textarea id="notes" placeholder="Type your notes here..." rows="10" cols="50"></textarea>
+            
+            <br>
+    
+            <h3>Live Speech</h3>
+            <!-- Display interim results (real-time speech transcription) -->
+            <div id="liveSpeechInput"></div>
+    
+             <details>
+                <summary>Audio<ion-icon name="finger-print"></ion-icon></summary>
+                <audio id="audioPlayback" controls></audio>
+             </details>
+          
+    
+            <h3 style="display: none;">Saved Notes</h3>
+            <!-- Container to display saved notes -->
+            <div id="notesContainer" style="display: none;"></div>
+    
+            <button id="saveNote" style="display: none;">Save Note</button> <!-- Button to save current notes -->
+             <h4>JJPoweredIT<ion-icon name="bonfire-sharp"></ion-icon></h4>
+        </ul>
+<script src="Recorder.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
