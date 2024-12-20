@@ -14,7 +14,7 @@ body{
     transition: 1s ease-in-out;
 }
 body.lightPlayer{
-    background: linear-gradient(to right, black,darkblue,lightgreen,maroon,black);
+    background: linear-gradient(to right,black, black,darkblue,lightgreen,maroon,black,black);
 }
 .container{
     margin: 0% auto;
